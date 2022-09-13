@@ -20,6 +20,17 @@ _**WordCont.exe [OPTION] filename [filename,.....]***_
 
 Формат вывода (без заданных опций):
   lines words bytes filename
+  
+### Примеры запуска программы:
+_WordCont.exe filename1_
+ 
+_WordCont.exe filename1 filename2_
+
+_WordCont.exe --words -- lines filename1_
+
+_WordCont.exe -l -c filename1_
+ 
+_WordCont.exe -lwc filename1 filename2_
 
 ## Примечание.
 Для реализации утилиты потребуется воспользоваться стандартной библиотекой вводы\вывода ([описание](https://en.cppreference.com/w/cpp/io/basic_ifstream)).
