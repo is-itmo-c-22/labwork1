@@ -31,14 +31,10 @@
 *.out
 *.app
 
-#gitignore
-.gitignore.txt
+.gitignore
 
 # Visual Studio folder
 .vs
 
 # Build folder
 out
-
-# Additional File(s)
-Russian Locatization.txt
