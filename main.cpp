@@ -3,11 +3,9 @@
 using namespace std;
 
 char* msgTable[] = {"Number of lines: ", "Size of file (bytes): ", "Number of words: ", "Number of chars:", "Unknown key ", "Help key cannot be used with any other option", "It will be ignored", "WordCount help\n\nWordCount [Options] <filename> [filename2 filename3 ...]\n\nOptions:\n\n   -l, --lines - display number of lines in file\n\n   -c, --bytes - display size of file in bytes\n\n   -w, --words - display number of words in file\n\n   -m, --chars - display number of chars in file\n\n   If none of the above keys is passed, all information about the file will be displayed\n\n   -h, --help - display this message\n", "Unable to open file", "One or more keys were passed more then once"};
-//char* msgTable[] = {"Количество строк: ", "Размер файла (в байтах): ", "Количество слов: ", "Количество символов: ", "Неизвестный ключ ", "Ключ справки не может использоваться совместно с другими параметрами", "Он будет проигнорирован", "Справка по WordCount\n\nWordCount [Ключи] <имя_файла> [имя_файла2 имя_файла3 ...]\n\nКлючи:\n\n   -l, --lines - Вывод количества строк в файле\n\n   -c, --bytes - Вывод размера файла в байтах\n\n   -w, --words - Вывод количества слов в файле\n\n   -m, --chars - Вывод количества символов в файле\n\n   Если не передан ни один из выше перечисленных ключей, будет выведена вся информация о файле\n\n   -h, --help - Вывод справки\n", "Невозможно открыть файл", "Один или несколько ключей были переданы более одного раза"};
-// ╨єёёър  ыюърышчрЎш  сєфхЄ ъюЁЁхъЄэю ЁрсюЄрЄ№ эр ъюэёюыш Windows яЁш эрёЄЁющърї яю єьюыўрэш■
 
-bool interruptOnNonCriticalErrors = 0; // ╧Ёш єёЄрэютъх чэрўхэш  1 яЁюуЁрььр сєфхЄ чртхЁ°рЄ№ё  т ёыєўрх тючэшъэютхэш  эхъЁшЄшўхёъшї ю°шсюъ
-bool enableHelp = 1; // ╙ёЄрэютър чэрўхэш  1 яючтюы хЄ т√чтрЄ№ ёяЁртъє
+bool interruptOnNonCriticalErrors = 0;
+bool enableHelp = 1;
 
 int main(int argc, char* argv[]) {
     short lines = 0, bytes = 0, words = 0, chars = 0, help = 0;
