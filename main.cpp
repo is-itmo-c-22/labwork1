@@ -2,7 +2,9 @@
 #include <fstream>
 #include <string>
 
+
 std::string path;
+
 
 void bytescount(std::string(path)){
 
@@ -54,7 +56,6 @@ int main(int argc, char* argv[]) {
     }
     if (argc >=3){
         for (int j = 1; j < argc; j++){
-
             std::ifstream f;
             f.open(argv[j]);
             if (f.is_open()){
