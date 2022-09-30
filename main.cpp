@@ -2,9 +2,7 @@
 #include <fstream>
 #include <string>
 
-
 std::string path;
-
 
 void bytescount(std::string(path)){
 
@@ -28,7 +26,6 @@ void wordscount(std::string(path)){
         if (!s.empty()){
             words++;
         }
-
     }
     std::cout << "Words: " << words << std::endl;
 }
