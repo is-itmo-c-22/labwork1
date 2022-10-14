@@ -1,10 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <getopt.h>
 
 std::string path;
 
-// added this to make a new commit
 
 void bytescount(std::string(path)){
 
@@ -47,12 +47,20 @@ void linecount(std::string(path)){
 }
 
 int main(int argc, char* argv[]) {
+    static struct option long_opt[] = {
+            {"lines", 0, 0, 'l'},
+            {"words", 0, 0, 'w'},
+            {"bytes", 0, 0, 'c'},
+            {0, 0, 0, 0}
+    };
+
     if (argc == 2) {
         path = argv[1];
         linecount(path);
         wordscount(path);
         bytescount(path);
     }
+
     if (argc >=3){
         for (int j = 1; j < argc; j++){
             std::ifstream f;
@@ -61,40 +69,21 @@ int main(int argc, char* argv[]) {
                 path = argv[j];
             }
         }
-        for (int i=1; i<argc; i++){
-            if (argv[i][0] == '-'){
-                if (std::string (argv[i]) == "-c" or std::string (argv[i]) == "--bytes"){
-                    bytescount(path);
-                }
-                if (std::string (argv[i]) == "-l" || std::string (argv[i]) == "--lines"){
+        int c;
+        int optIdx;
+        while ((c = getopt_long(argc, argv, "lwc", long_opt, &optIdx)) != -1){
+            switch (c) {
+                case 'l':
                     linecount(path);
-                }
-                if (std::string (argv[i]) == "-w" || std::string (argv[i]) == "--words"){
+                    break;
+                case 'w':
                     wordscount(path);
-                }
-                if (std::string (argv[i]) == "-cl" || std::string (argv[i]) == "-lc") {
-                    linecount(path);
+                    break;
+                case 'c':
                     bytescount(path);
-                }
-                if (std::string (argv[i]) == "-cw" || std::string (argv[i]) == "-wc") {
-                    wordscount(path);
-                    bytescount(path);
-                }
-                if (std::string (argv[i]) == "-lw" || std::string (argv[i]) == "-wl"){
-                    linecount(path);
-                    wordscount(path);
-                }
-                if (std::string (argv[i]) == "-clw" || std::string (argv[i]) == "-cwl" || std::string (argv[i]) == "-lcw"){
-                    linecount(path);
-                    wordscount(path);
-                    bytescount(path);
-                }
-                if (std::string (argv[i]) == "-lwc" || std::string (argv[i]) == "-wlc" || std::string (argv[i]) == "-wcl"){
-                    linecount(path);
-                    wordscount(path);
-                    bytescount(path);
-                }
+                    break;
             }
+
         }
     }
     return 0;
